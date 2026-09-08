@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="FundMeOut app icon">
+  <rect width="120" height="120" rx="28" fill="#0052FF"/>
+  <!-- O smile centered -->
+  <g transform="translate(22,22)">
+    <circle cx="38" cy="38" r="32" fill="none" stroke="white" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 20 40 C 20 54, 56 54, 56 40" fill="none" stroke="white" stroke-width="7.5" stroke-linecap="round"/>
+    <path d="M 24 43 C 24 50, 52 50, 52 43" fill="none" stroke="white" stroke-width="3.5" opacity="0.95" stroke-linecap="round"/>
+  </g>
+</svg>

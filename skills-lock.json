@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "brand-guidelines": {
+      "source": "hosseinmirzapur/opencode-skills",
+      "sourceType": "github",
+      "skillPath": "skills/brand-guidelines/SKILL.md",
+      "computedHash": "1d7f52b333a756b97476266c2dbe1d4d46c1a3cb1c7afb86e295271dc2a7512b"
+    },
+    "building-accessible-interfaces": {
+      "source": "osmontero/opencode-skills",
+      "sourceType": "github",
+      "skillPath": "skills/building-accessible-interfaces/SKILL.md",
+      "computedHash": "f0a9e23166d820551677e7fe9cc7239e519a453ee193cd60c8dde32772bd5dde"
+    },
+    "designing-frontend-interfaces": {
+      "source": "osmontero/opencode-skills",
+      "sourceType": "github",
+      "skillPath": "skills/designing-frontend-interfaces/SKILL.md",
+      "computedHash": "03932bde6d8523fb0975848b839ad1c4b6d070ff7bb3ac6de60a5302de394bec"
+    },
+    "designing-user-experience": {
+      "source": "osmontero/opencode-skills",
+      "sourceType": "github",
+      "skillPath": "skills/designing-user-experience/SKILL.md",
+      "computedHash": "78db0278c8f026786c1c4f3152958b41ccdda10cc6fc7f61f214124796da56fc"
+    },
+    "reviewing-interface-quality": {
+      "source": "osmontero/opencode-skills",
+      "sourceType": "github",
+      "skillPath": "skills/reviewing-interface-quality/SKILL.md",
+      "computedHash": "ec2148c26668b534e3537224901832036eed9d737a7467b53229306ac271b982"
+    }
+  }
+}

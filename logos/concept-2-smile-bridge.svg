@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" width="100%" height="100%" fill="none">
+  <!-- FundMeOut Master Brandmark (Option B: Uplift Bridge - Satoshi / Toy-Tech Refined) -->
+  <defs>
+    <!-- Vibrant Toy-Tech Electric Blue -->
+    <linearGradient id="brandBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0052FF" />
+      <stop offset="100%" stop-color="#0035D0" />
+    </linearGradient>
+
+    <!-- Kinetic Uplift Smile Bridge (Electric Lime -> Vivid Cyan -> Cobalt) -->
+    <linearGradient id="upliftGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0052FF" />
+      <stop offset="45%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#06FF2E" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&amp;display=swap');
+    .word-text {
+      font-family: 'Plus Jakarta Sans', 'Satoshi', -apple-system, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+  </style>
+
+  <g transform="translate(24, 20)">
+    <!-- "FundMe" in signature high-energy electric blue -->
+    <text x="0" y="88" class="word-text" font-size="82" fill="url(#brandBlueGrad)">FundMe</text>
+
+    <!-- Capital "O" with elevated visual weight -->
+    <text x="362" y="88" class="word-text" font-size="82" fill="url(#brandBlueGrad)">O</text>
+
+    <!-- "ut" -->
+    <text x="438" y="88" class="word-text" font-size="82" fill="url(#brandBlueGrad)">ut</text>
+
+    <!-- The Uplift Smile Gesture: Starts under O, dips playfully, and arcs up past 'ut' -->
+    <path d="M 378 106 C 418 142, 492 142, 542 98" 
+          stroke="url(#upliftGradient)" 
+          stroke-width="9" 
+          stroke-linecap="round" 
+          fill="none"/>
+
+    <!-- Left origin beacon dot -->
+    <circle cx="378" cy="106" r="5" fill="#0052FF"/>
+
+    <!-- Uplift arrowhead/dimple flick (Amazon-like gesture reimagined for social funding) -->
+    <path d="M 534 88 C 543 92, 551 96, 556 101 C 550 107, 542 113, 534 115 C 539 107, 540 98, 534 88 Z" 
+          fill="#06FF2E"/>
+  </g>
+</svg>

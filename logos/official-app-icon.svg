@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%" fill="none">
+  <!-- FundMeOut Official App Icon (Brand Guidelines Slide 02) -->
+  <rect width="120" height="120" rx="28" fill="#0052FF"/>
+  <rect x="2" y="2" width="116" height="116" rx="26" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+
+  <!-- Iconic Circular Halo O with Inner Joyful Smile -->
+  <circle cx="60" cy="60" r="32" stroke="#FFFFFF" stroke-width="8.5" fill="none" stroke-linecap="round"/>
+  <path d="M 45 61 C 45 77, 75 77, 75 61" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" fill="none"/>
+</svg>

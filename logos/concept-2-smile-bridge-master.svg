@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 150" width="100%" height="100%" fill="none">
+  <!-- FundMeOut Master Wordmark: Smile Uplift Bridge -->
+  <defs>
+    <linearGradient id="electricBlueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0047FF"/>
+      <stop offset="100%" stop-color="#0066FF"/>
+    </linearGradient>
+    <linearGradient id="limeCyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06FF2E"/>
+      <stop offset="100%" stop-color="#00F0FF"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .brand-wordmark {
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 800;
+    }
+  </style>
+
+  <g transform="translate(20, 24)">
+    <!-- "FundMe" -->
+    <text x="0" y="74" class="brand-wordmark" font-size="68" fill="#0047FF" letter-spacing="-1.2">FundMe</text>
+
+    <!-- "Out" with elevated prominence -->
+    <text x="300" y="74" class="brand-wordmark" font-size="68" fill="#0047FF" letter-spacing="-1.2">Out</text>
+
+    <!-- The Uplift Smile Bridge: Starts under the O and swoops with an uplifting smile flick beneath the 'ut' -->
+    <!-- Mimicking the iconic uplifting motion: uplifting someone OUT of need with a joyful smile -->
+    <path d="M 326 88 C 362 118, 430 118, 466 84" stroke="url(#limeCyanGrad)" stroke-width="7" stroke-linecap="round" fill="none"/>
+    
+    <!-- Joyful terminal dimples / gesture tips -->
+    <circle cx="326" cy="88" r="4.5" fill="#06FF2E"/>
+    
+    <!-- Uplift arrowhead/dimple flick at the end of the swoop (reminiscent of Amazon's smile flick, but fresh and uplifting) -->
+    <path d="M 458 76 C 466 79, 472 82, 476 86 C 472 91, 465 96, 458 98 C 462 92, 463 85, 458 76 Z" fill="#00F0FF"/>
+  </g>
+</svg>

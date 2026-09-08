@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%" fill="none">
+  <!-- FundMeOut Official Guidelines Animated Loader (Halo + Smile) -->
+  <style>
+    @keyframes officialHaloSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes officialSmilePulse {
+      0%, 100% {
+        transform: scale(1);
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.12);
+        stroke-dashoffset: 10;
+        opacity: 0.85;
+      }
+    }
+    .halo-track {
+      animation: officialHaloSpin 3s linear infinite;
+      transform-origin: center;
+    }
+    .smile-center {
+      animation: officialSmilePulse 2s ease-in-out infinite;
+      transform-origin: 80px 80px;
+    }
+  </style>
+
+  <rect width="160" height="160" rx="36" fill="#0052FF"/>
+  <rect x="2" y="2" width="156" height="156" rx="34" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2"/>
+
+  <!-- Rotating Halo Ring with segmented dash -->
+  <circle class="halo-track" cx="80" cy="80" r="50" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-dasharray="220 70"/>
+
+  <!-- Centered Smile Arc -->
+  <g class="smile-center">
+    <path d="M 60 82 C 60 102, 100 102, 100 82" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

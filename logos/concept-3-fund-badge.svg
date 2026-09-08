@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 160" width="100%" height="100%" fill="none">
+  <!-- Concept 3: Modern Smile Badge & Wordmark (Harmonized with Brand Kit) -->
+  <defs>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0052FF"/>
+      <stop offset="50%" stop-color="#7B30FF"/>
+      <stop offset="100%" stop-color="#FF408A"/>
+    </linearGradient>
+    <linearGradient id="neonSmileC3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06FF2E"/>
+      <stop offset="100%" stop-color="#00F0FF"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&amp;display=swap');
+    .c3-text {
+      font-family: 'Plus Jakarta Sans', 'Satoshi', -apple-system, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+  </style>
+
+  <!-- Left Icon Emblem: The Pebble Halo Smile Disc -->
+  <g transform="translate(20, 24)">
+    <rect width="84" height="84" rx="26" fill="url(#badgeGrad)"/>
+    <rect x="2" y="2" width="80" height="80" rx="24" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+    
+    <!-- Smile Arc inside the badge -->
+    <path d="M 22 42 C 32 64, 52 64, 62 42" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+    <circle cx="22" cy="42" r="3.5" fill="#FFFFFF"/>
+    <circle cx="62" cy="42" r="3.5" fill="#00F0FF"/>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(126, 24)">
+    <text x="0" y="58" class="c3-text" font-size="62" fill="#0052FF">FundMe<tspan fill="#FF408A">Out</tspan></text>
+    <text x="4" y="82" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748B" letter-spacing="4">PEOPLE • CAUSES • BRIGHTER TOMORROW</text>
+  </g>
+</svg>
