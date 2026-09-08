@@ -391,11 +391,11 @@ a:hover { text-decoration: underline; }
 <script src="icons/icons-inline.js"></script>
 <script>
 (function(){
-  // src/lib/icons/icon-config.ts — app-wide weight, one line:
-  // export const APP_ICON_WEIGHT = 'regular' as const;
+  // src/lib/icons/icon-config.ts — one line:
+  // export const APP_ICON_WEIGHT = 'regular' as const; // → 1.6 thin oval per reference
   const APP_ICON_WEIGHT = 'regular';
-  let previewWeight = APP_ICON_WEIGHT; // page-local preview only
-  const WEIGHT_STROKE = { thin: 1, light: 1.5, regular: 2, bold: 2.6, fill: 2, duotone: 2 };
+  let previewWeight = APP_ICON_WEIGHT;
+  const WEIGHT_STROKE = { thin: 1, light: 1.5, regular: 1.6, bold: 2.15, fill: 2, duotone: 2 };
   const FILL_OPT_OUT = new Set(['trust-shield', 'checkup', 'like']); // status/solid icons: always weight="fill"
   const iconNames = ['user','profile','browse','animals','education','home','medical-health','food','sports','travel','community-heart','causes','fundraising','donations','projects','events','messages','notifications','settings','help','share','like','saved-campaigns','camera','dashboard','transfers','trust-shield','checkup','post-update','view-eye','delete-trash'];
   let scale = 28;
