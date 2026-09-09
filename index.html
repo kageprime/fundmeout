@@ -7,6 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/light/style.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css"/>
 <style>
 :root {
   --bg: #06090E;
@@ -125,6 +131,7 @@ a:hover { text-decoration: underline; }
 .icon-tile { background: var(--bg-panel); border: var(--border); border-radius: var(--radius-card); padding: 18px 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: border-color var(--dur), background var(--dur), transform var(--dur); font-family: var(--font-text); }
 .icon-tile:hover { background: var(--bg-hover); transform: translateY(-2px); }
 .icon-tile svg { color: var(--ink); width: 26px; height: 26px; }
+.icon-tile i { color: var(--ink); font-size: 26px; line-height: 1; }
 .icon-name { font-size: 0.72rem; color: var(--ink-2); text-transform: capitalize; text-align: center; }
 
 .site-foot { border-top: var(--border); margin-top: 64px; padding-top: 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--ink-3); font-size: 0.80rem; }
@@ -328,27 +335,20 @@ a:hover { text-decoration: underline; }
 </div>
 
 <div id="toast" class="toast" role="status" aria-live="polite">Copied</div>
-<script src="icons/icons-inline.js"></script>
 <script>
 (function(){
-  // src/lib/icons/icon-config.ts — one line, app-wide (phosphor):
+  // src/lib/icons/icon-config.ts — one line, app-wide:
   // export const APP_ICON_WEIGHT = 'regular' as const;
-  const APP_ICON_WEIGHT = 'regular';
-  let previewWeight = APP_ICON_WEIGHT; // preview-only toggle
-  const PHOS_WEIGHTS = ['thin','light','regular','bold','fill','duotone'];
-  // For Phosphor base we swap SVG source per weight; fallback stroke map for non-phosphor fallback
-  const WEIGHT_STROKE = { thin: 1, light: 1.5, regular: 1.6, bold: 2.15, fill: 2, duotone: 2 };
-  const FILL_OPT_OUT = new Set(['trust-shield', 'checkup', 'like']); // status/solid icons: always weight="fill"
-  const iconNames = ['user','profile','browse','animals','education','home','medical-health','food','sports','travel','community-heart','causes','fundraising','donations','projects','events','messages','notifications','settings','help','share','like','saved-campaigns','camera','dashboard','transfers','trust-shield','checkup','post-update','view-eye','delete-trash'];
+  // Web usage per phosphor-icons/homepage: stylesheets above, <i class="ph ph-smiley"></i>.
+  const APP_ICON_WEIGHT = 'regular'; // thin | light | regular | bold | fill | duotone
+  let previewWeight = APP_ICON_WEIGHT; // page-local preview only
+  const mapping = (()=>{ try { return JSON.parse(document.getElementById('phos-map')?.textContent || '{}'); } catch(e){ return {}; } })();
+  const iconNames = Object.keys(mapping);
+  const FILL_OPT_OUT = new Set(['trust-shield', 'checkup', 'like']); // status/solid: always weight="fill"
   let scale = 28;
   const grid = document.getElementById('brand-icon-grid');
+  function weightClass(w){ return w === 'regular' ? 'ph' : 'ph-' + w; }
   function effectiveWeight(name){ return FILL_OPT_OUT.has(name) ? 'fill' : previewWeight; }
-  function applyWeight(svgEl, weight){
-    if(!svgEl) return;
-    if(weight === 'fill'){ svgEl.setAttribute('fill', 'currentColor'); svgEl.setAttribute('stroke', 'none'); }
-    else if(weight === 'duotone'){ svgEl.setAttribute('fill', 'currentColor'); svgEl.setAttribute('fill-opacity', '0.25'); svgEl.setAttribute('stroke', 'currentColor'); svgEl.setAttribute('stroke-width', WEIGHT_STROKE.duotone); }
-    else { svgEl.setAttribute('fill', 'none'); svgEl.setAttribute('stroke', 'currentColor'); svgEl.setAttribute('stroke-width', WEIGHT_STROKE[weight] || 2); }
-  }
   function render(){
     grid.innerHTML = '';
     iconNames.forEach(name=>{
@@ -357,56 +357,25 @@ a:hover { text-decoration: underline; }
       tile.className = 'icon-tile';
       tile.setAttribute('aria-label','Copy '+name+' icon');
       tile.onclick = ()=> copyIcon(name);
-      const svg = (window.ICON_SVG_MAP && ICON_SVG_MAP[name]) ? ICON_SVG_MAP[name] : '';
-      tile.innerHTML = svg + '<span class="icon-name">'+name.replace(/-/g,' ')+'</span>';
-      const svgEl = tile.querySelector('svg');
-      if(svgEl){ svgEl.setAttribute('width', scale); svgEl.setAttribute('height', scale); svgEl.setAttribute('aria-hidden','true'); applyWeight(svgEl, effectiveWeight(name)); }
+      const w = effectiveWeight(name);
+      tile.innerHTML = '<i class="'+weightClass(w)+' ph-'+mapping[name]+'" style="font-size:'+scale+'px" aria-hidden="true"></i>'
+        + '<span class="icon-name">'+name.replace(/-/g,' ')+'</span>';
       grid.appendChild(tile);
     });
   }
   window.setIconWeight = function(w){
-    previewWeight = w; // page-local preview only
-    document.querySelectorAll('[data-weight]').forEach(b=>{
-      const on = b.getAttribute('data-weight') === w;
-      b.classList.toggle('btn--primary', on);
-      if(on) b.style.background='var(--blue)'; else { b.style.background=''; b.style.borderColor=''; b.style.color=''; }
-    });
-    // Phosphor: swap SVG source per weight via raw.githubusercontent; fallback to stroke tweak for thinned oval legacy
-    const mapping = (()=>{ try { return JSON.parse(document.getElementById('phos-map')?.textContent || '{}'); } catch(e){ return {}; } })();
-    document.querySelectorAll('.icon-tile').forEach(tile=>{
-      const label = tile.querySelector('.icon-name');
-      const name = label ? label.textContent.replace(/ /g,'-') : '';
-      const phName = mapping[name];
-      const isPhosphor = !!phName;
-      const eff = effectiveWeight(name);
-      const svgEl = tile.querySelector('svg');
-      if(isPhosphor && PHOS_WEIGHTS.includes(eff)){
-        // fetch phosphor weight variant if not regular and not Fill opt-out needing fill path
-        if(eff !== 'regular'){
-          const url = `https://raw.githubusercontent.com/phosphor-icons/core/main/assets/${eff}/${phName}.svg`;
-          fetch(url).then(r=> r.ok ? r.text() : Promise.reject()).then(svgText=>{
-            // preserve width/height and aria
-            const w = svgEl.getAttribute('width')||'26', h= svgEl.getAttribute('height')||'26';
-            tile.querySelector('svg').outerHTML = svgText.replace('<svg','<svg width="'+w+'" height="'+h+'" aria-hidden="true"');
-            const newEl = tile.querySelector('svg'); if(newEl){ newEl.setAttribute('width', w); newEl.setAttribute('height', h); }
-          }).catch(()=> applyWeight(svgEl, eff));
-        } else {
-          // reload regular from map
-          const svg = window.ICON_SVG_MAP && window.ICON_SVG_MAP[name];
-          if(svg){ tile.querySelector('svg').outerHTML = svg.match(/<svg[^>]*>[\s\S]*<\/svg>/)[0]; const ne = tile.querySelector('svg'); if(ne){ ne.setAttribute('width', scale); ne.setAttribute('height', scale); ne.setAttribute('aria-hidden','true'); } }
-        }
-      } else {
-        applyWeight(svgEl, eff);
-      }
-    });
+    previewWeight = w; // page-local preview only, never writes icon-config.ts
+    document.querySelectorAll('[data-weight]').forEach(b=> b.classList.toggle('btn--primary', b.getAttribute('data-weight') === w));
+    render();
   };
   window.setIconScale = function(px){
     scale = px;
-    document.querySelectorAll('.icon-tile svg').forEach(el=>{ el.setAttribute('width', px); el.setAttribute('height', px); });
+    document.querySelectorAll('.icon-tile i').forEach(el=>{ el.style.fontSize = px + 'px'; });
   };
   window.copyIcon = function(name){
-    const svg = window.ICON_SVG_MAP && window.ICON_SVG_MAP[name];
-    if(svg){ navigator.clipboard.writeText(svg).then(()=> toast('Copied '+name)); }
+    const w = effectiveWeight(name);
+    const snippet = '<i class="'+weightClass(w)+' ph-'+mapping[name]+'"></i>';
+    if(navigator.clipboard){ navigator.clipboard.writeText(snippet).then(()=> toast('Copied '+name)); }
   };
   function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.style.display='block'; setTimeout(()=> el.style.display='none', 1800); }
   const sections=[...document.querySelectorAll('section[id]')];
