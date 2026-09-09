@@ -305,10 +305,11 @@ a:hover { text-decoration: underline; }
       </div>
     </section>
 
+    <script type="application/json" id="phos-map">{"user":"user","profile":"user-circle","browse":"compass","animals":"paw-print","education":"graduation-cap","home":"house","medical-health":"heartbeat","food":"fork-knife","sports":"basketball","travel":"airplane","community-heart":"users-three","causes":"heart","fundraising":"hand-coins","donations":"currency-dollar","projects":"squares-four","events":"calendar","messages":"chat-circle","notifications":"bell","settings":"gear","help":"question","share":"share-network","like":"heart","saved-campaigns":"bookmark","camera":"camera","dashboard":"squares-four","transfers":"arrows-left-right","trust-shield":"shield-check","checkup":"clipboard-text","post-update":"megaphone","view-eye":"eye","delete-trash":"trash"}</script>
     <section id="icons" class="section">
       <div class="kicker">09 — Icons · Phosphor only</div>
       <h2 class="h2">One weight everywhere, preview locally</h2>
-      <p class="desc">Product icons use Phosphor only. The app-wide weight lives on one line in <code style="font-family: var(--font-mono); font-size: 0.80em;">src/lib/icons/icon-config.ts</code> and is applied by <code style="font-family: var(--font-mono); font-size: 0.80em;">IconProvider</code>. Status and solid icons opt out with an explicit <code style="font-family: var(--font-mono); font-size: 0.80em;">weight="fill"</code>. The toggle below is page-local preview only.</p>
+      <p class="desc">Product icons use Phosphor only. The app-wide weight lives on one line in <code style="font-family: var(--font-mono); font-size: 0.80em;">src/lib/icons/icon-config.ts</code> and is applied by <code style="font-family: var(--font-mono); font-size: 0.80em;">IconProvider</code>. Status and solid icons opt out with an explicit <code style="font-family: var(--font-mono); font-size: 0.80em;">weight="fill"</code>. The toggle below is page-local preview only. <a href="icons.html">Open the dedicated icons page →</a></p>
       <div class="icon-toolbar">
         <span class="icon-toolbar-label">App weight · Regular · 24px</span>
         <span style="display: flex; gap: 6px; flex-wrap: wrap;" role="group" aria-label="Preview icon weight">
@@ -391,10 +392,12 @@ a:hover { text-decoration: underline; }
 <script src="icons/icons-inline.js"></script>
 <script>
 (function(){
-  // src/lib/icons/icon-config.ts — one line:
-  // export const APP_ICON_WEIGHT = 'regular' as const; // → 1.6 thin oval per reference
+  // src/lib/icons/icon-config.ts — one line, app-wide (phosphor):
+  // export const APP_ICON_WEIGHT = 'regular' as const;
   const APP_ICON_WEIGHT = 'regular';
-  let previewWeight = APP_ICON_WEIGHT;
+  let previewWeight = APP_ICON_WEIGHT; // preview-only toggle
+  const PHOS_WEIGHTS = ['thin','light','regular','bold','fill','duotone'];
+  // For Phosphor base we swap SVG source per weight; fallback stroke map for non-phosphor fallback
   const WEIGHT_STROKE = { thin: 1, light: 1.5, regular: 1.6, bold: 2.15, fill: 2, duotone: 2 };
   const FILL_OPT_OUT = new Set(['trust-shield', 'checkup', 'like']); // status/solid icons: always weight="fill"
   const iconNames = ['user','profile','browse','animals','education','home','medical-health','food','sports','travel','community-heart','causes','fundraising','donations','projects','events','messages','notifications','settings','help','share','like','saved-campaigns','camera','dashboard','transfers','trust-shield','checkup','post-update','view-eye','delete-trash'];
@@ -423,16 +426,39 @@ a:hover { text-decoration: underline; }
     });
   }
   window.setIconWeight = function(w){
-    previewWeight = w; // page-local only, does not change APP_ICON_WEIGHT
+    previewWeight = w; // page-local preview only
     document.querySelectorAll('[data-weight]').forEach(b=>{
       const on = b.getAttribute('data-weight') === w;
       b.classList.toggle('btn--primary', on);
+      if(on) b.style.background='var(--blue)'; else { b.style.background=''; b.style.borderColor=''; b.style.color=''; }
     });
+    // Phosphor: swap SVG source per weight via raw.githubusercontent; fallback to stroke tweak for thinned oval legacy
+    const mapping = (()=>{ try { return JSON.parse(document.getElementById('phos-map')?.textContent || '{}'); } catch(e){ return {}; } })();
     document.querySelectorAll('.icon-tile').forEach(tile=>{
       const label = tile.querySelector('.icon-name');
       const name = label ? label.textContent.replace(/ /g,'-') : '';
+      const phName = mapping[name];
+      const isPhosphor = !!phName;
+      const eff = effectiveWeight(name);
       const svgEl = tile.querySelector('svg');
-      applyWeight(svgEl, effectiveWeight(name));
+      if(isPhosphor && PHOS_WEIGHTS.includes(eff)){
+        // fetch phosphor weight variant if not regular and not Fill opt-out needing fill path
+        if(eff !== 'regular'){
+          const url = `https://raw.githubusercontent.com/phosphor-icons/core/main/assets/${eff}/${phName}.svg`;
+          fetch(url).then(r=> r.ok ? r.text() : Promise.reject()).then(svgText=>{
+            // preserve width/height and aria
+            const w = svgEl.getAttribute('width')||'26', h= svgEl.getAttribute('height')||'26';
+            tile.querySelector('svg').outerHTML = svgText.replace('<svg','<svg width="'+w+'" height="'+h+'" aria-hidden="true"');
+            const newEl = tile.querySelector('svg'); if(newEl){ newEl.setAttribute('width', w); newEl.setAttribute('height', h); }
+          }).catch(()=> applyWeight(svgEl, eff));
+        } else {
+          // reload regular from map
+          const svg = window.ICON_SVG_MAP && window.ICON_SVG_MAP[name];
+          if(svg){ tile.querySelector('svg').outerHTML = svg.match(/<svg[^>]*>[\s\S]*<\/svg>/)[0]; const ne = tile.querySelector('svg'); if(ne){ ne.setAttribute('width', scale); ne.setAttribute('height', scale); ne.setAttribute('aria-hidden','true'); } }
+        }
+      } else {
+        applyWeight(svgEl, eff);
+      }
     });
   };
   window.setIconScale = function(px){
@@ -494,3 +520,4 @@ a:hover { text-decoration: underline; }
 </script>
 </body>
 </html>
+
