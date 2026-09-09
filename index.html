@@ -126,7 +126,7 @@ a:hover { text-decoration: underline; }
 .icon-tile:hover { background: var(--bg-hover); transform: translateY(-2px); }
 .icon-tile svg { color: var(--ink); width: 26px; height: 26px; }
 .icon-name { font-size: 0.72rem; color: var(--ink-2); text-transform: capitalize; text-align: center; }
-.kit-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 14px; margin-top: 16px; }
+
 .site-foot { border-top: var(--border); margin-top: 64px; padding-top: 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--ink-3); font-size: 0.80rem; }
 .loader-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
 @media (max-width: 800px) { .loader-demo { grid-template-columns: 1fr; } }
@@ -150,7 +150,7 @@ a:hover { text-decoration: underline; }
     <a href="#color" class="nav-link">Color</a>
     <a href="#type" class="nav-link">Type</a>
     <a href="#icons" class="nav-link">Icons</a>
-    <a href="#kit" class="nav-link">Kit</a>
+    <a href="#loading" class="nav-link">Loading</a>
   </div>
   <a href="#logo-primary" class="nav-cta">Download assets</a>
 </nav>
@@ -160,15 +160,12 @@ a:hover { text-decoration: underline; }
     <span class="toc-label">Contents</span>
     <a href="#overview">01 Overview</a>
     <a href="#logo-primary">02 Primary lockup</a>
-    <a href="#logo-directions">03 Directions</a>
-    <a href="#logo-explorations">04 Explorations</a>
-    <a href="#logo-lean">05 Lean lockup</a>
-    <a href="#logo-app">06 App icon</a>
-    <a href="#color">07 Color</a>
-    <a href="#type">08 Typography</a>
-    <a href="#icons">09 Icons</a>
-    <a href="#loading">10 Loading</a>
-    <a href="#kit">11 Brand Kit</a>
+    <a href="#logo-lean">03 Lean lockup</a>
+    <a href="#logo-app">04 App icon</a>
+    <a href="#color">05 Color</a>
+    <a href="#type">06 Typography</a>
+    <a href="#icons">07 Icons</a>
+    <a href="#loading">08 Loading</a>
   </nav>
 
   <main class="maincol">
@@ -219,40 +216,8 @@ a:hover { text-decoration: underline; }
 
     </section>
 
-    <section id="logo-directions" class="section">
-      <div class="kicker">03 — Design directions</div>
-      <h2 class="h2">Two routes, one idea</h2>
-      <p class="desc">A clean, open smile and a thinner, more understated gesture. Presented here as Route A and Route B so the sequence stays in order.</p>
-      <div class="subsection">
-        <div class="figure">
-          <img src="logo-directions.png" alt="Logo directions — Minimal Smile and Modern and Refined"/>
-          <div class="figure-caption"><span class="figure-label">Direction board · Minimal Smile · Modern and Refined</span></div>
-        </div>
-        <div class="logo-grid">
-          <div class="card" style="padding: 14px;"><div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--blue); letter-spacing: 0.06em; text-transform: uppercase;">Route A · Minimal Smile</div><div style="font-weight: 700; margin: 4px 0;">Clean and simple</div><p style="color: var(--ink-2); font-size: 0.85rem;">A single, balanced smile — hope and positive impact. For product and marketing.</p></div>
-          <div class="card" style="padding: 14px;"><div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--blue); letter-spacing: 0.06em; text-transform: uppercase;">Route B · Modern and Refined</div><div style="font-weight: 700; margin: 4px 0;">Subtle and timeless</div><p style="color: var(--ink-2); font-size: 0.85rem;">A thinner smile gesture — professional and understated. For editorial contexts.</p></div>
-        </div>
-      </div>
-
-    </section>
-
-    <section id="logo-explorations" class="section">
-      <div class="kicker">04 — Alternate explorations</div>
-      <h2 class="h2">Earlier routes, kept for reference</h2>
-      <p class="desc">Same blue, same smile logic, different construction.</p>
-      <div class="subsection">
-        <div class="logo-grid">
-          <div class="card"><div class="specimen-light"><img src="logos/official-brand-primary.svg" alt="Guidelines exploration"/></div><div class="card-body"><strong>Guidelines</strong><div class="card-copy">Centered smile with swooping baseline.</div></div></div>
-          <div class="card"><div class="specimen-light"><img src="logos/concept-1-smiley-o.svg" alt="Joyful O exploration"/></div><div class="card-body"><strong>Joyful O</strong><div class="card-copy">Friendly face nested inside the O.</div></div></div>
-          <div class="card"><div class="specimen-light"><img src="logos/concept-2-smile-bridge.svg" alt="Uplift Bridge exploration"/></div><div class="card-body"><strong>Uplift Bridge</strong><div class="card-copy">Smile sweeping beneath into an uplift flick.</div></div></div>
-          <div class="card"><div class="specimen-light"><img src="logos/concept-3-fund-badge.svg" alt="Halo Badge exploration"/></div><div class="card-body"><strong>Halo Badge</strong><div class="card-copy">Standalone emblem with wordmark.</div></div></div>
-        </div>
-      </div>
-
-    </section>
-
     <section id="logo-lean" class="section">
-      <div class="kicker">05 — Lean lockup</div>
+      <div class="kicker">03 — Lean lockup</div>
       <h2 class="h2">Single line for compact placements</h2>
       <p class="desc">Single-line version for dark fields and compact placements.</p>
       <div class="subsection">
@@ -265,7 +230,7 @@ a:hover { text-decoration: underline; }
     </section>
 
     <section id="logo-app" class="section">
-      <div class="kicker">06 — App icon</div>
+      <div class="kicker">04 — App icon</div>
       <h2 class="h2">The O, cropped to a squircle</h2>
       <p class="desc">Legible from store listing to favicon.</p>
       <div class="subsection">
@@ -282,7 +247,7 @@ a:hover { text-decoration: underline; }
     </section>
 
     <section id="color" class="section">
-      <div class="kicker">07 — Color</div>
+      <div class="kicker">05 — Color</div>
       <h2 class="h2">Electric blue, warm paper, single accent</h2>
       <p class="desc">Blue does the work. Everything else stays quiet.</p>
       <div class="swatch-grid">
@@ -294,7 +259,7 @@ a:hover { text-decoration: underline; }
     </section>
 
     <section id="type" class="section">
-      <div class="kicker">08 — Typography</div>
+      <div class="kicker">06 — Typography</div>
       <h2 class="h2">Rounded display, humanist text</h2>
       <p class="desc">Display carries character. Text stays quiet. One scale throughout.</p>
       <div style="margin-top: 16px; background: var(--bg-panel); border: var(--border); border-radius: var(--radius-card); padding: 16px 20px;">
@@ -307,7 +272,7 @@ a:hover { text-decoration: underline; }
 
     <script type="application/json" id="phos-map">{"user":"user","profile":"user-circle","browse":"compass","animals":"paw-print","education":"graduation-cap","home":"house","medical-health":"heartbeat","food":"fork-knife","sports":"basketball","travel":"airplane","community-heart":"users-three","causes":"heart","fundraising":"hand-coins","donations":"currency-dollar","projects":"squares-four","events":"calendar","messages":"chat-circle","notifications":"bell","settings":"gear","help":"question","share":"share-network","like":"heart","saved-campaigns":"bookmark","camera":"camera","dashboard":"squares-four","transfers":"arrows-left-right","trust-shield":"shield-check","checkup":"clipboard-text","post-update":"megaphone","view-eye":"eye","delete-trash":"trash"}</script>
     <section id="icons" class="section">
-      <div class="kicker">09 — Icons · Phosphor only</div>
+      <div class="kicker">07 — Icons · Phosphor only</div>
       <h2 class="h2">One weight everywhere, preview locally</h2>
       <p class="desc">Product icons use Phosphor only. The app-wide weight lives on one line in <code style="font-family: var(--font-mono); font-size: 0.80em;">src/lib/icons/icon-config.ts</code> and is applied by <code style="font-family: var(--font-mono); font-size: 0.80em;">IconProvider</code>. Status and solid icons opt out with an explicit <code style="font-family: var(--font-mono); font-size: 0.80em;">weight="fill"</code>. The toggle below is page-local preview only. <a href="icons.html">Open the dedicated icons page →</a></p>
       <div class="icon-toolbar">
@@ -326,7 +291,7 @@ a:hover { text-decoration: underline; }
     </section>
 
     <section id="loading" class="section">
-      <div class="kicker">10 — Loading</div>
+      <div class="kicker">08 — Loading</div>
       <h2 class="h2">One smile, still moving</h2>
       <p class="desc">The loader carries the identity while the product works. Light frame opens the moment, dark frame holds the wait. Same blue and amber, same smile, reduced motion respected.</p>
       <div class="figure">
@@ -351,32 +316,6 @@ a:hover { text-decoration: underline; }
           <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--blue); letter-spacing: 0.06em; text-transform: uppercase;">Behavior</div>
           <div style="font-weight: 700; margin: 4px 0;">Calm, never blocking</div>
           <p style="color: var(--ink-2); font-size: 0.85rem;">Ring rotates 1.4s linear, smile stays still. Spins only while waiting. Honors reduced-motion by pausing. Blue opens, amber resolves — the same two hues as the start frame.</p>
-        </div>
-      </div>
-      <div class="subsection" style="margin-top: 24px;">
-        <h3 class="h3"><span class="h3-num">10.1</span> Loading styles</h3>
-        <p class="desc">Four explorations from the logo routes. Same smile logic, different motion — pick one per surface.</p>
-        <div class="logo-grid" style="margin-top: 12px;">
-          <div class="card"><div style="display: grid; place-items: center; padding: 20px; background: #0052FF;"><img src="logos/official-brand-loader.svg" alt="Halo and smile loader" style="width: 96px; height: 96px;"/></div><div class="card-body"><strong>Halo and smile</strong><div class="card-copy">Rotating halo ring, pulsing center smile. Default for app launch.</div></div></div>
-          <div class="card"><div style="display: grid; place-items: center; padding: 20px; background: #0B0B0F;"><img src="logos/concept-2-loader.svg" alt="Uplift smile loader" style="width: 96px; height: 96px;"/></div><div class="card-body"><strong>Uplift smile</strong><div class="card-copy">Smile draws across, beacons pulse. For funding progress.</div></div></div>
-          <div class="card"><div style="display: grid; place-items: center; padding: 20px; background: #0B0B0F;"><img src="logos/concept-1-loader.svg" alt="Wink loader" style="width: 96px; height: 96px;"/></div><div class="card-body"><strong>Wink</strong><div class="card-copy">Eyes wink, smile draws. Playful, for empty states.</div></div></div>
-          <div class="card"><div style="display: grid; place-items: center; padding: 20px; background: #0B0B0F;"><img src="logos/concept-3-loader.svg" alt="Orbit loader" style="width: 96px; height: 96px;"/></div><div class="card-body"><strong>Orbit</strong><div class="card-copy">Outer track orbits a smiling badge. For background sync.</div></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="kit" class="section">
-      <div class="kicker">11 — Brand Kit</div>
-      <h2 class="h2">Cover to outro</h2>
-      <p class="desc">The complete narrative — from manifesto to impact.</p>
-      <div class="kit-grid" id="kit-grid"></div>
-      <div id="kit-lightbox" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(6,9,14,0.94); align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
-        <button onclick="closeKit()" aria-label="Close" style="position: absolute; top: 20px; right: 24px; background: none; border: none; color: #FFF; font-size: 2rem; cursor: pointer;">&times;</button>
-        <img id="kit-img" style="max-width: 90vw; max-height: 80vh; border-radius: var(--radius-card); border: 1px solid var(--line-strong);" src="" alt=""/>
-        <div style="margin-top: 14px; display: flex; gap: 10px; align-items: center;">
-          <button onclick="kitNav(-1)" style="background: var(--bg-panel); border: var(--border); color: #FFF; padding: 8px 14px; border-radius: var(--radius-pill); cursor: pointer;">← Prev</button>
-          <span id="kit-label" style="font-family: var(--font-mono); font-size: 0.80rem; color: #FFF;"></span>
-          <button onclick="kitNav(1)" style="background: var(--bg-panel); border: var(--border); color: #FFF; padding: 8px 14px; border-radius: var(--radius-pill); cursor: pointer;">Next →</button>
         </div>
       </div>
     </section>
@@ -477,45 +416,6 @@ a:hover { text-decoration: underline; }
   },{rootMargin:'-40% 0px -50% 0px'});
   sections.forEach(s=> obs.observe(s));
   render();
-  const kitData = [
-    {n:"01 / 16", t:"People. Causes. A Brighter Tomorrow.", d:"Cover", f:"slide-01-brand-guidelines-cover"},
-    {n:"02 / 16", t:"Logo System", d:"Wordmark and icon", f:"slide-02-logo-system"},
-    {n:"03 / 16", t:"Small Actions. Big Dreams.", d:"Editorial story", f:"slide-03-brand-story"},
-    {n:"04 / 16", t:"Color and Typography", d:"Palette and type", f:"slide-04-color-typography"},
-    {n:"05 / 16", t:"Iconography", d:"31 icons", f:"slide-05-iconography-system"},
-    {n:"06 / 16", t:"Pebble", d:"Hardware", f:"slide-06-product-hardware"},
-    {n:"07 / 16", t:"Lifestyle", d:"Photography", f:"slide-07-lifestyle-editorial"},
-    {n:"08 / 16", t:"Product Variants", d:"Finishes", f:"slide-08-product-variants-cmf"},
-    {n:"09 / 16", t:"Packaging", d:"Unboxing", f:"slide-09-packaging-exploration"},
-    {n:"10 / 16", t:"Editorial", d:"Spread", f:"slide-10-editorial-magazine"},
-    {n:"11 / 16", t:"App Experience", d:"Mobile interface", f:"slide-11-app-experience"},
-    {n:"12 / 16", t:"Retail", d:"Pop-up", f:"slide-12-immersive-retail"},
-    {n:"13 / 16", t:"Motion", d:"Kinetic smile", f:"slide-13-motion-brand-elements"},
-    {n:"14 / 16", t:"Social", d:"Campaign grids", f:"slide-14-social-campaign"},
-    {n:"15 / 16", t:"Billboard", d:"Urban", f:"slide-15-ooh-billboard"},
-    {n:"16 / 16", t:"Real People. Real Impact.", d:"Outro", f:"slide-16-outro-real-impact"},
-  ];
-  let kitIdx=0;
-  const kitGrid=document.getElementById('kit-grid');
-  if(kitGrid){
-    kitData.forEach((s,i)=>{
-      const card=document.createElement('div');
-      card.className='card';
-      card.innerHTML=`<div style="aspect-ratio:16/10;overflow:hidden;background:#000;cursor:pointer;" onclick="openKit(${i})"><img src="brand-kit/edition-a/${s.f}@2x.png" alt="${s.t}" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='brand-kit/edition-a/${s.f}.png'"/></div><div class="card-body" style="padding:12px;"><div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--ink-3);">${s.n}</div><div style="font-weight:700;font-size:0.90rem;">${s.t}</div><div style="color:var(--ink-2);font-size:0.80rem;">${s.d}</div></div>`;
-      kitGrid.appendChild(card);
-    });
-  }
-  window.openKit=function(i){ kitIdx=i; const s=kitData[i]; document.getElementById('kit-img').src='brand-kit/edition-a/'+s.f+'@2x.png'; document.getElementById('kit-label').textContent=s.n+' — '+s.t; document.getElementById('kit-lightbox').style.display='flex'; };
-  window.closeKit=function(){ document.getElementById('kit-lightbox').style.display='none'; };
-  window.kitNav=function(d){ kitIdx=(kitIdx+d+kitData.length)%kitData.length; openKit(kitIdx); };
-  document.addEventListener('keydown', e=>{
-    const lb=document.getElementById('kit-lightbox');
-    if(!lb || lb.style.display==='none') return;
-    if(e.key==='Escape') closeKit();
-    if(e.key==='ArrowRight') kitNav(1);
-    if(e.key==='ArrowLeft') kitNav(-1);
-  });
-  document.getElementById('kit-lightbox')?.addEventListener('click', e=>{ if(e.target.id==='kit-lightbox') closeKit(); });
 })();
 </script>
 </body>
